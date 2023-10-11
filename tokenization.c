@@ -41,8 +41,6 @@ int tokenization(char *command)
 	if (execute(full_path, argvec) == -1)
 	{
 		printf("can't execute this action");
-		free(full_path);
-		exit(1);
 	}
 	free(full_path);
 	return (0);
