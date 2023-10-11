@@ -7,7 +7,6 @@ int execute(char *full_path, char *argvec[])
 
 	if (is_executable(full_path) == -1)
 	{
-		printf("can't access file");
 		return (-1);
 	}
 	cpid = fork();
