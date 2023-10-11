@@ -30,7 +30,7 @@ int tokenization(char *command)
 
 	if (strcmp(argvec[0], "exit") == 0)
 	{
-		return (-1);
+		exit(1);
 	}
 
 	path = "/bin/";
