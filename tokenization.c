@@ -1,7 +1,9 @@
 #include "main.h"
 
 int tokenization(char *command)
-{
+{	
+	if (command[0] == '/' && command[1] == 'b')
+		command += 5;
 	char *argvec[MAX_ARGS];
 	int arg_count = 0;
 	char *path, *full_path;
