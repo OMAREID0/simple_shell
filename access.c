@@ -11,7 +11,6 @@ int is_executable(char *full_path)
 	if (access(full_path, F_OK) == -1)
 	{
 		perror("command not found");
-		free(full_path);
 		return (-1);
 	}
 	else
