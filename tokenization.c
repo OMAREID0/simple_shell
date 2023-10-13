@@ -2,7 +2,7 @@
 
 int tokenization(char *command)
 {	
-	if (command[0] == '/' && command[1] == 'b')	
+	if (command[0] == '/' && strlen(command) > 5 ) 
 		command += 5;
 	char *argvec[MAX_ARGS];
 	int arg_count = 0;
@@ -41,8 +41,10 @@ int tokenization(char *command)
 	strcat(full_path, argvec[0]);
 
 	if (execute(full_path, argvec) == -1)
-	{	if(*(char *)(command - 5) == '/' && *(char *)(command - 4) == 'b')
-			printf("bash: /bin/%s: No such file or directory\n", command);
+	{	
+		if(full_path[5] == '/')
+			printf("bash: %s: No such file or directory\n", full_path);
+
 		else
 			printf("%s: command not found\n", command);
 	}
