@@ -18,6 +18,8 @@ extern char **environ;
 int tokenization(char *command);
 int is_executable(char *full_path);
 int execute(char *full_path, char *argvec[]);
+int tokenization_non(char **commands);
+char **narray(char *buffer, size_t limit);
 
 
 #endif
