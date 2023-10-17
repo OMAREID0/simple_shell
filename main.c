@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int reaad, num_op = 0;
+	int reaad, i,num_op = 0;
 	char *command;
 	size_t len;
 	char buffer[MAX_lin];
@@ -33,13 +33,13 @@ int main(int argc, char *argv[])
 	else
 	{
 		r = read(STDIN_FILENO, buffer,sizeof(buffer));
+		buffer[r - 1] = '\0';
 		if(r <= 0)
 		{
 			perror("error reading input");
 			return (-1);
 		}
-		command = buffer;
-		tokenization_non(commands);
+		tokenization(buffer, argv, num_op);
 	}
 	return (0);
 }
