@@ -9,6 +9,7 @@
 #include <string.h>
 
 #define MAX_ARGS 10
+#define MAX_lin 1024
 
 extern char **environ;
 

@@ -3,9 +3,9 @@
 int main(int argc, char *argv[])
 {
 	int reaad, num_op = 0;
-	char *command = NULL;
+	char *command;
 	size_t len;
-	char buffer[4096];
+	char buffer[MAX_lin];
 	size_t r;
 	char **commands;
 	if (isatty(STDIN_FILENO))
@@ -32,10 +32,13 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-
-		while((r = read(STDIN_FILENO, buffer,sizeof(buffer))) >0)
-			;
-		command = &buffer;
+		r = read(STDIN_FILENO, buffer,sizeof(buffer));
+		if(r <= 0)
+		{
+			perror("error reading input");
+			return (-1);
+		}
+		command = buffer;
 		tokenization_non(commands);
 	}
 	return (0);
