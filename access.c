@@ -8,12 +8,9 @@
  */
 int is_executable(char *full_path)
 {
-	if (access(full_path, F_OK) == -1)
+	if (access(full_path, X_OK) == -1)
 	{
 		return (-1);
 	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }

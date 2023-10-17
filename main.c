@@ -2,12 +2,14 @@
 
 int main(int argc, char *argv[])
 {
-	int reaad, i,num_op = 0;
-	char *command;
+	int reaad;
+	char *command = NULL;
 	size_t len;
-	char buffer[MAX_lin];
-	size_t r;
+	char buffer[255];
+	int r;
 	char **commands;
+	dir_c *head = NULL;
+
 	if (isatty(STDIN_FILENO))
 	{
 		do {
@@ -26,20 +28,15 @@ int main(int argc, char *argv[])
 				}
 				command[strlen(command) - 1] = '\0';
 			}
-			num_op++;
-			tokenization(command, argv, num_op);
+			tokenization(command, &head);
 		} while (argc <= 1);
 	}
 	else
 	{
-		r = read(STDIN_FILENO, buffer,sizeof(buffer));
-		buffer[r - 1] = '\0';
-		if(r <= 0)
-		{
-			perror("error reading input");
-			return (-1);
-		}
-		tokenization(buffer, argv, num_op);
+
+		while((r = read(STDIN_FILENO, buffer,sizeof(buffer))) >0)
+			;
+		termination(buffer, &head);
 	}
 	return (0);
 }

@@ -9,16 +9,29 @@
 #include <string.h>
 
 #define MAX_ARGS 10
-#define MAX_lin 1024
 
 extern char **environ;
+typedef struct directories
+{
+	char *dir;
+	struct directories *next;
+} dir_c;
+
 
 /**
  * main functions
  */
-int tokenization(char *command, char **argv, int num_op);
+
 int is_executable(char *full_path);
 int execute(char *full_path, char *argvec[]);
-int tokenization_non(char **commands);
+int tokenization(char *command,dir_c **head);
+char **narray(char *buffer, size_t limit);
 
+void insertc_dir(dir_c **head, char *current);
+void free_dir(dir_c *head);
+void termination(char *buffer, dir_c **head);
+
+
+int chdirf(char **directory, int n, dir_c **head);
+void exit_status(char **compare, dir_c *head);
 #endif
