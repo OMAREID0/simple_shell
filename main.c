@@ -3,7 +3,7 @@
 int main(int argc, char *argv[])
 {
 	int reaad, r, num_op = 0;
-	char buffer[1024], *command = NULL
+	char buffer[1024], *command = NULL;
 	size_t len;
 	dir_c *head = NULL;
 
