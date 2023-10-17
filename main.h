@@ -24,12 +24,10 @@ typedef struct directories
 
 int is_executable(char *full_path);
 int execute(char *full_path, char *argvec[]);
-int tokenization(char *command,dir_c **head);
-char **narray(char *buffer, size_t limit);
+int tokenization(char *command, dir_c **head, char **argv, int num_op);
 
 void insertc_dir(dir_c **head, char *current);
 void free_dir(dir_c *head);
-void termination(char *buffer, dir_c **head);
 
 
 int chdirf(char **directory, int n, dir_c **head);

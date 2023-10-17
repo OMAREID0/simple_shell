@@ -12,5 +12,8 @@ int is_executable(char *full_path)
 	{
 		return (-1);
 	}
-	return (0);
+	else
+	{
+		return (0);
+	}
 }

@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * execute - Execute a command with specified argument.
+ * @full_path: The full path to the executable file.
+ * @argvec: An array of command arguments.
+ */
 int execute(char *full_path, char *argvec[])
 {
 	pid_t cpid;
