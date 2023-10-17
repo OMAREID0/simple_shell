@@ -15,11 +15,9 @@ extern char **environ;
 /**
  * main functions
  */
-int tokenization(char *command);
+int tokenization(char *command, char **argv, int num_op);
 int is_executable(char *full_path);
 int execute(char *full_path, char *argvec[]);
 int tokenization_non(char **commands);
-char **narray(char *buffer, size_t limit);
-
 
 #endif

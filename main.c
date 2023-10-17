@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int reaad;
+	int reaad, num_op = 0;
 	char *command = NULL;
 	size_t len;
 	char buffer[4096];
@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 				}
 				command[strlen(command) - 1] = '\0';
 			}
-			tokenization(command);
+			num_op++;
+			tokenization(command, argv, num_op);
 		} while (argc <= 1);
 	}
 	else
@@ -34,8 +35,7 @@ int main(int argc, char *argv[])
 
 		while((r = read(STDIN_FILENO, buffer,sizeof(buffer))) >0)
 			;
-		commands = narray(buffer, r);
-		printf("%s", commands[0]);
+		command = &buffer;
 		tokenization_non(commands);
 	}
 	return (0);

@@ -1,6 +1,6 @@
 #include "main.h"
 
-int tokenization(char *command)
+int tokenization(char *command,char **argv, int num_op)
 {	
 	if (command[0] == '/' && strlen(command) > 5 ) 
 		command += 5;
@@ -46,7 +46,8 @@ int tokenization(char *command)
 			printf("bash: %s: No such file or directory\n", full_path);
 
 		else
-			printf("%s: command not found\n", command);
+			printf("%s: %d:", argv[0], num_op);
+			printf("%s: not found\n", command);
 	}
 	free(full_path);
 	return (0);
