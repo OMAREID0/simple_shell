@@ -25,11 +25,10 @@ int chdirf(char **directory, int n, dir_c **head)
 		return (ch_home(head, current_dir));
 	if (n == 2)
 	{
-		if (p[0] == '[' && p[strlen(p) - 1] == ']')
-			return (ch_syntax(p, head, current_dir));
-		else if (strcmp(directory[1], "-") == 0)
+		if (_strcmp(directory[1], "-") == 0)
 			return (ch_previous(head, current_dir));
+		else
+			return (ch_syntax(p, head, current_dir));
 	}
-	printf("invalid syntax.Command syntax must be: cd [DIRECTORY]");
 	return (0);
 }

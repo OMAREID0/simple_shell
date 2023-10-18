@@ -9,8 +9,7 @@
  */
 int ch_syntax(char *p, dir_c **head, char *current_dir)
 {
-	p[strlen(p) - 1] = '\0';
-		if (chdir(++p) != 0)
+		if (chdir(p) != 0)
 		{
 			perror("cd: ");
 		}

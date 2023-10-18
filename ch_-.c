@@ -16,11 +16,14 @@ int ch_previous(dir_c **head, char *current_dir)
 		else
 		{
 			if (getcwd(current_dir, 1024) != NULL)
+			{
 				insertc_dir(head, current_dir);
 				if (*head == NULL)
 					return (0);
-			printf("%s\n%s", (*head)->dir, (*head)->dir);
+				printf("%s\n%s", (*head)->dir, (*head)->dir);
+			}
 		}
+
 	}
 	else
 		printf("cd: OLDPWD not set\n");
