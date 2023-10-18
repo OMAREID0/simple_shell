@@ -31,6 +31,7 @@ char *_strcat(char *dest, char *src)
 
 	return (dest);
 }
+
 /**
  * _strlen - Calculate the length of a string
  * @s: The input string
@@ -49,6 +50,7 @@ int _strlen(const char *s)
 
 	return (length);
 }
+
 /**
  * _strcmp - Compare two strings.
  * @s1: The first string to compare.
@@ -87,6 +89,7 @@ char *_strcpy(char *dest, char *src)
 	*dest = '\0';
 	return (original_dest);
 }
+
 /**
  * _strdup - Duplicates a string `src'.
  * @src: The source string.
@@ -107,4 +110,3 @@ char *_strdup(char *origin)
 		coppy[i] = origin[i];
 	return (coppy);
 }
-

@@ -1,5 +1,11 @@
 #include "main.h"
-
+/**
+ * main - simple shell project
+ * @argc: number of argument pass to program
+ * @argv: array of arguments.
+ *
+ * Return: return 0 when exit.
+ */
 int main(int argc, char *argv[])
 {
 	char *command = NULL;
@@ -20,7 +26,7 @@ int main(int argc, char *argv[])
 		tokenization(command, &head, argv, num_op);
 		if (argc > 1000)
 		{
-			printf("a7a bt3ml eh");/*easter egg*/
+			printf("a7a bt3ml eh");
 		}
 	}
 	return (0);

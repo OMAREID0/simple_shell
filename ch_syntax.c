@@ -5,7 +5,8 @@
  * @p: the destination directory between [].
  * @head: A pointer to the head of a directory history linked list.
  * @current_dir: pointer to the directory to store.
- * Return: 0.
+ *
+ * Return: retutn always (0).
  */
 int ch_syntax(char *p, dir_c **head, char *current_dir)
 {

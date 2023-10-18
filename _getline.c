@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _getline - function read STDIN and store it in buffer
+ * @fd: file discreptor
+ *
+ * Return: return pointer to the buffer.
+ */
 char *_getline(int fd)
 {
 	int i, bytes_read, index = 0;
