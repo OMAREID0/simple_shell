@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	if (isatty(STDIN_FILENO))
 	{
 		do {
-			printf("($)");
+			printf("$ ");
 			if (argc > 1)
 			{
 				command = argv[1];
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 				command[strlen(command) - 1] = '\0';
 			}
 			tokenization(command, &head, argv);
-		} while (argc <= 1);
+		} while (1);
 	}
 	else
 	{
