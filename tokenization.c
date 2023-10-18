@@ -7,7 +7,7 @@
  *
  * Return: return 0on success, -1 for errors.
  */
-int tokenization(char *command, dir_c **head, char **argv)
+int tokenization(char *command, dir_c **head, char **argv, int num_op)
 {
 	char *argvec[MAX_ARGS];
 	int arg_count = 0;
@@ -40,7 +40,7 @@ int tokenization(char *command, dir_c **head, char **argv)
 		}
 		else
 		{
-			printf("%s: 1:", argv[0]);
+			printf("%s: %d:", argv[0], num_op);
 			printf(" %s: not found\n", command);
 		}
 	}

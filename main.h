@@ -24,7 +24,7 @@ typedef struct directories
 
 int is_executable(char *full_path);
 int execute(char *full_path, char *argvec[]);
-int tokenization(char *command, dir_c **head, char **argv);
+int tokenization(char *command, dir_c **head, char **argv, int num_op);
 int ch_previous(dir_c **head,char *current_dir);
 int ch_syntax(char *p, dir_c **head, char *current_dir);
 void insertc_dir(dir_c **head, char *current);

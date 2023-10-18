@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int reaad, r;
+	int reaad, r, num_op = 0;
 	char buffer[1024], *command = NULL;
 	size_t len;
 	dir_c *head = NULL;
@@ -25,7 +25,8 @@ int main(int argc, char *argv[])
 				}
 				command[strlen(command) - 1] = '\0';
 			}
-			tokenization(command, &head, argv);
+			num_op++;
+			tokenization(command, &head, argv, num_op);
 		} while (1);
 	}
 	else
@@ -37,7 +38,8 @@ int main(int argc, char *argv[])
 			perror("error reading input");
 			return (-1);
 		}
-		tokenization(buffer, &head, argv);
+		num_op++;
+		tokenization(buffer, &head, argv, num_op);
 	}
 	return (0);
 }
