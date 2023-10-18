@@ -2,12 +2,12 @@
 
 /**
  * chdirf - Change the current working directory based on user input.
- * @p: the directory between [].
+ * @p: the destination directory between [].
  * @head: A pointer to the head of a directory history linked list.
- *
+ * @current_dir: pointer to the directory to store.
  * Return: 0.
  */
-void ch_syntax(char *p, dir_c **head)
+int ch_syntax(char *p, dir_c **head, char *current_dir)
 {
 	p[strlen(p) - 1] = '\0';
 		if (chdir(++p) != 0)
@@ -16,7 +16,7 @@ void ch_syntax(char *p, dir_c **head)
 		}
 		else
 		{
-			if (getcwd(current_dir, sizeof(current_dir)) != NULL)
+			if (getcwd(current_dir, 1024) != NULL)
 			{
 				insertc_dir(head, current_dir);
 			}
