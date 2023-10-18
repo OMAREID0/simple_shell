@@ -10,10 +10,12 @@ _______________
 also in non-interactive mode:
 
 $ echo "/bin/ls" | ./hsh
-hsh main.c shell.c test_ls_2
+hsh main.c shell.c
 $
 ________________
 
 shell will be compiled this way:
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+________________
+
