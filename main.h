@@ -30,12 +30,12 @@ int _strcmp(char *s1, char *s2);
 char *_strdup(char *origin);
 char *_strcpy(char *dest, char *src);
 
-char* _getline(int fd);
+char *_getline(int fd);
 
 int is_executable(char *full_path);
 int execute(char *full_path, char *argvec[]);
-int tokenization(char *command, dir_c **head, char **argv);
-int ch_previous(dir_c **head,char *current_dir);
+int tokenization(char *command, dir_c **head, char **argv, int num_op);
+int ch_previous(dir_c **head, char *current_dir);
 int ch_syntax(char *p, dir_c **head, char *current_dir);
 void insertc_dir(dir_c **head, char *current);
 int ch_home(dir_c **head, char *curreant_dir);
