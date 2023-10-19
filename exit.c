@@ -4,12 +4,6 @@
  * exit_status - Exit the program with a specific status code.
  * @compare: An array of strings representing the command and arguments.
  * @head: A pointer to the head of the directory history linked list.
- *
- * Description: If the command is "exit", the function frees the directory
- * history and exits the program with the specified status code. The function
- * also frees the dir_c structure.
- *
- * Return: The exit status code.
  */
 int exit_status(char **compare, dir_c *head)
 {
