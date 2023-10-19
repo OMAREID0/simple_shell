@@ -8,6 +8,8 @@
 #include <errno.h>
 #include <string.h>
 #include <limits.h>
+#include <stddef.h>
+
 
 #define MAX_LINE_LENGTH 256
 
@@ -39,7 +41,7 @@ int ch_home(dir_c **head, char *curreant_dir);
 void free_dir(dir_c *head);
 int chdirf(char **directory, int n, dir_c **head);
 void exit_status(char **compare, dir_c *head);
-int _atoi(char *s);
+unsigned int _atoi(char *s);
 int _main(int fd, char *command, dir_c **head, int *num_op, char **argv);
 
 #endif
