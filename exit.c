@@ -17,3 +17,4 @@ exit_status(char **compare, dir_c *head)
 		exit_code = _atoi(compare[1]);
 		exit(exit_code);
 	}
+}
