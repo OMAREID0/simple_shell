@@ -257,13 +257,7 @@ $ setenv NAME Alx
 $ unsetenv NAME
 $ echo $NAME
 
-$
 ```
-
-## Authors & Copyrights
-
-* Masturah Ghali <[Undevcover](https://github.com/Undevcover)>
-* Aminu Shaibu <[elameen37](https://github.com/elameen37)>
 
 ## More information
 
