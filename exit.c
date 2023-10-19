@@ -5,7 +5,7 @@
  * @compare: An array of strings representing the command and arguments.
  * @head: A pointer to the head of the directory history linked list.
  */
-int exit_status(char **compare, dir_c *head)
+exit_status(char **compare, dir_c *head)
 {
 	int exit_code = 0;
 
@@ -17,6 +17,3 @@ int exit_status(char **compare, dir_c *head)
 		exit_code = _atoi(compare[1]);
 		exit(exit_code);
 	}
-
-	return exit_code;
-}
