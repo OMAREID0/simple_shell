@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * ch_home - Change the current working directory to `HOME'
- * @headL pointer to the directory history.
- * @current_dir: pointer to the directory that will be stored in the history.
+ * ch_home - Change the current working directory to HOME.
+ * @head: Pointer to the directory history.
+ * @current_dir: Pointer to the directory that will be stored in the history.
  *
  * Return: 0.
  */
