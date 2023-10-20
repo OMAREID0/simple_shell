@@ -1,92 +1,32 @@
 #include "main.h"
-
 /**
-  * execute - execute a command
-  * @info: arguments passed
-  *
-  * Return: status
-  */
-int execute(info_t *info)
-{
-	const builtin_t *builtin = get_builtin(*info->tokens);
-
-	if (builtin)
-	{
-		return (builtin->f(info));
-	}
-	if (_strchr(*info->tokens, '/') == -1)
-	{
-		free_list(&info->path);
-		info->path = str_to_list(get_dict_val(info->env, "PATH"), ':');
-		info->exe = search_path(info, info->path);
-	}
-	else
-	{
-		info->exe = _strdup(*info->tokens);
-	}
-	if (info->exe && access(info->exe, X_OK) == 0)
-	{
-		return (_execute(info));
-	}
-	if (info->exe)
-	{
-		perrorl_default(*info->argv, info->lineno, "Permission denied",
-				*info->tokens, NULL);
-		info->status = 126;
-	}
-	else
-	{
-		perrorl_default(*info->argv, info->lineno, "not found",
-				*info->tokens, NULL);
-		info->status = 127;
-	}
-	return (info->status);
-}
-
-
-/**
- * _execute - fork and exec the current command
- * @info: shell information
- *
- * Return: exit status of the child process
+ * execute - Execute a command with specified argument.
+ * @full_path: The full path to the executable file.
+ * @argvec: An array of command arguments.
  */
-int _execute(info_t *info)
+int execute(char *full_path, char *argvec[])
 {
-	char *exe, **argv, **env;
+	pid_t cpid;
+	int status = 0;
 
-	switch (fork())
+	if (is_executable(full_path) == -1)
 	{
-	case 0:
-		exe = info->exe;
-		argv = info->tokens;
-		env = dict_to_env(info->env);
-
-		info->exe = NULL;
-		info->tokens = NULL;
-		free_info(info);
-
-		execve(exe, argv, env);
-		perror(*argv);
-
-		if (info->file)
-			close(info->fileno);
-
-		free(exe);
-		free_tokens(&argv);
-		free_tokens(&env);
-		exit(EXIT_FAILURE);
-		break;
-	case -1:
-		perrorl_default(*info->argv, info->lineno, "Cannot fork", NULL);
-		info->status = 2;
-		break;
-	default:
-		wait(&info->status);
-		info->status = WEXITSTATUS(info->status);
-		break;
+		return (-1);
 	}
-	free(info->exe);
-	info->exe = NULL;
-
-	return (info->status);
+	cpid = fork();
+	if (cpid == -1)
+		exit(0);
+	else if (cpid == 0)
+	{
+		execve(full_path, argvec, environ);
+		perror("execve failed");
+		exit(1);
+	}
+	else
+	{
+		waitpid(cpid, &status, 0);
+		if (!WIFEXITED(status))
+			printf("Child process exited abnormally.\n");
+	}
+	return (0);
 }

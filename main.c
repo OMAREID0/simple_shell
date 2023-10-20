@@ -1,34 +1,34 @@
 #include "main.h"
-
 /**
- * main - entry point
- * @argc: the argument count
- * @argv: the argument vector
+ * main - simple shell project
+ * @argc: number of argument pass to program
+ * @argv: array of arguments.
  *
- * Return: Always 0
+ * Return: return 0 when exit.
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	info_t *info = init_info(argc, argv);
+	char *command = NULL;
+	dir_c *head = NULL;
+	int num_op = 0;
 
-	signal(2, _sigint);
-
-	while (read_input(info))
+	while (1)
 	{
-		parse(info);
-		while ((info->tokens = pop_cmd(&(info->commands))))
+		if (isatty(STDIN_FILENO))
 		{
-			execute(info);
-			free_tokens(&(info->tokens));
+			printf("$ ");
+			fflush(stdout);
 		}
-		free(info->line);
-		info->line = NULL;
+		command = _getline(STDIN_FILENO);
+		if (!command)
+		break;
+		num_op++;
+		tokenization(command, &head, argv, num_op);
+		if (argc > 1000)
+		{
+			printf("a7a bt3ml eh");
+		}
 	}
-	if (info->interactive)
-		write(STDOUT_FILENO, "\n", 1);
-
-	if (info->file)
-		close(info->fileno);
-
-	exit(free_info(info));
+	return (0);
 }
+
