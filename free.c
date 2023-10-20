@@ -6,13 +6,13 @@
  */
 void free_dir(dir_c *head)
 {
-	dir_c *p;
+    dir_c *current;
 
-	while (head != NULL)
-	{
-		p = head;
-		head = head->next;
-		free(p->dir);
-		free(p);
-	}
+    while (head != NULL)
+    {
+        current = head;
+        head = head->next;
+        free(current->dir);
+        free(current);
+    }
 }
