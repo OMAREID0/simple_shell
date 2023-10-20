@@ -11,10 +11,7 @@
 #include <errno.h>
 #include <dirent.h>
 #include <signal.h>
-extern char **commands = NULL;
-extern char *line = NULL;
-extern char *shell_name = NULL;
-extern int status = 0;
+
 
 /*constants*/
 #define EXTERNAL_COMMAND 1
@@ -37,7 +34,11 @@ typedef struct map
 	void (*func)(char **command);
 } function_map;
 
-
+extern char **environ;
+extern char *line;
+extern char **commands;
+extern char *shell_name;
+extern int status;
 
 /*helpers*/
 void print(char *, int);
@@ -76,3 +77,5 @@ extern void non_interactive(void);
 extern void initializer(char **current_command, int type_command);
 
 #endif /*SHELL_H*/
+
+
