@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _getline - function read STDIN and store it in buffer
- * @fd: file discreptor
+ * _getline - Reads from a file descriptor and stores it in a buffer.
+ * @fd: The file descriptor.
  *
- * Return: return pointer to the buffer.
+ * Return: A pointer to the buffer.
  */
 char *_getline(int fd)
 {
