@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * is_executable - check if the file is accessable ot not
- * @full_path: path of the file
+ * is_executable - Check if the file is executable.
+ * @full_path: The path to the file.
  *
- * Return: Always return 0 if success, and -1 for Errors.
+ * Return: 0 for success, -1 for errors.
  */
 int is_executable(char *full_path)
 {
