@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * ch_- - Change the current working directory to the previuos.
+ * ch_previous - Change the current working directory to the previous one.
  * @head: A pointer to the head of a directory history linked list.
- * @curren_dir: pointer to the destination directory.
+ * @current_dir: Pointer to the destination directory.
  *
  * Return: 0 on success.
  */
@@ -23,7 +23,6 @@ int ch_previous(dir_c **head, char *current_dir)
 				printf("%s\n%s", (*head)->dir, (*head)->dir);
 			}
 		}
-
 	}
 	else
 		printf("cd: OLDPWD not set\n");
