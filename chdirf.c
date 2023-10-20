@@ -6,7 +6,7 @@
  * @n: The number of elements in the 'directory' array.
  * @head: A pointer to the head of a directory history linked list.
  *
- * Return: return (0) on success, (-1) on failure.
+ * Return: 0 on success, -1 on failure.
  */
 int chdirf(char **directory, int n, dir_c **head)
 {
