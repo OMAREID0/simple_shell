@@ -17,6 +17,6 @@ void insertc_dir(dir_c **head, char *current)
 	}
 	else
 	{
-		printf("Failed to allocate memory.\n");
+		fprintf(stderr, "Failed to allocate memory.\n");
 	}
 }
