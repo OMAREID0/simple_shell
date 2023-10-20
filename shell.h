@@ -11,7 +11,10 @@
 #include <errno.h>
 #include <dirent.h>
 #include <signal.h>
-
+extern char **commands = NULL;
+extern char *line = NULL;
+extern char *shell_name = NULL;
+extern int status = 0;
 
 /*constants*/
 #define EXTERNAL_COMMAND 1
