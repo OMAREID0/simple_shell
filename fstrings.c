@@ -9,17 +9,15 @@
  */
 char *_strcat(char *dest, char *src)
 {
-    int dest_len = _strlen(dest);
-    int i;
+	int dest_len = _strlen(dest);
+	int i;
 
-    for (i = 0; src[i] != '\0'; i++)
-    {
-        dest[dest_len + i] = src[i];
-    }
-
-    dest[dest_len + i] = '\0';
-
-    return dest;
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		dest[dest_len + i] = src[i];
+	}
+	dest[dest_len + i] = '\0';
+	return (dest);
 }
 
 /**
@@ -30,15 +28,14 @@ char *_strcat(char *dest, char *src)
  */
 int _strlen(const char *s)
 {
-    int length = 0;
+	int length = 0;
 
-    while (*s != '\0')
-    {
-        length++;
-        s++;
-    }
-
-    return length;
+	while (*s != '\0')
+	{
+		length++;
+		s++;
+	}
+	return (length);
 }
 
 /**
@@ -51,13 +48,12 @@ int _strlen(const char *s)
  */
 int _strcmp(char *s1, char *s2)
 {
-    while (*s1 && *s2 && *s1 == *s2)
-    {
-        s1++;
-        s2++;
-    }
-
-    return (int)(*s1) - (int)(*s2);
+	while (*s1 && *s2 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((int)(*s1) - (int)(*s2));
 }
 
 /**
@@ -69,16 +65,16 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strcpy(char *dest, const char *src)
 {
-    char *original_dest = dest;
+	char *original_dest = dest;
 
-    while (*src != '\0')
-    {
-        *dest = *src;
-        dest++;
-        src++;
-    }
-    *dest = '\0';
-    return original_dest;
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (original_dest);
 }
 
 /**
@@ -89,15 +85,16 @@ char *_strcpy(char *dest, const char *src)
  */
 char *_strdup(const char *origin)
 {
-    int i;
-    char *copy;
+	int i;
+	char *copy;
 
-    for (i = 0; origin[i]; ++i)
-        ;
-    copy = (char *)malloc(i + 1);
-    if (!copy)
-        return NULL;
-    for (++i; i >= 0; i--)
-        copy[i] = origin[i];
-    return copy;
+	for (i = 0; origin[i]; ++i)
+		;
+	copy = (char *)malloc(i + 1);
+	if (!copy)
+		return (NULL);
+
+	for (++i; i >= 0; i--)
+		copy[i] = origin[i];
+	return (copy);
 }

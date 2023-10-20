@@ -25,8 +25,8 @@ char *_strchr(char *s, char c);
 int _strlen(const char *s);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
-char *_strdup(char *origin);
-char *_strcpy(char *dest, char *src);
+char *_strdup(const char *origin);
+char *_strcpy(char *dest, const char *src);
 char *_getline(int fd);
 
 /** Helper Functions **/
